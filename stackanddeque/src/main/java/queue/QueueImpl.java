@@ -7,8 +7,8 @@ public class QueueImpl<E> implements Queue<E> {
     protected E[] data;
     protected int size;
 
-    private int front; // метка указывающая от куда должны удалить элемент
-    private int rear; // куда должны добавить новый элемент
+    protected int front; // метка указывающая от куда должны удалить элемент
+    protected int rear; // куда должны добавить новый элемент
 
     public QueueImpl (int maxSize){
         this.data = (E[]) new Object[maxSize];
