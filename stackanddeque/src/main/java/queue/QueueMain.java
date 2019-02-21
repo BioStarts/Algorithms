@@ -33,6 +33,23 @@ public class QueueMain {
         while ( !queue.isEmpty()) {
             System.out.println(remove(queue));
         }
+
+        System.out.println("-----------------------------------");
+        Deque<Integer> deque = new DequeImpl<>(6);
+
+        insertRight(deque, 1);
+        insertRight(deque, 2);
+        insertRight(deque, 3);
+        insertRight(deque, 4);
+        insertLeft(deque, 5);
+        insertLeft(deque, 6);
+
+        removeLeft(deque);
+        removeRight(deque);
+
+        while ( !deque.isEmpty()) {
+            System.out.println(removeLeft(deque));
+        }
     }
 
     private static <E> E remove(Queue<E> queue) {
@@ -57,6 +74,19 @@ public class QueueMain {
     private static <E> E removeLeft(Deque<E> queue) {
         if ( !queue.isEmpty()){
             return queue.removeLeft();
+        }
+        return null;
+    }
+
+    private static <E> void insertRight(Deque<E> queue, E value) {
+        if ( !queue.isFull()){
+            queue.insertRight(value);
+        }
+    }
+
+    private static <E> E removeRight(Deque<E> queue) {
+        if ( !queue.isEmpty()){
+            return queue.removeRight();
         }
         return null;
     }
